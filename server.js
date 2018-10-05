@@ -56,6 +56,6 @@ app.use(cors());
 
 require('./controllers/apiRoutes.js')(app);
 
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
   console.log("listening to port: " + port);
 });
