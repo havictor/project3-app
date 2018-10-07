@@ -1,14 +1,17 @@
 var express = require('express');
 var body_parser = require('body-parser');
 var methodOverride = require('method-override');
-var cors = require('cors')
-var path = require('path');
+var path = require('path');var cors = require('cors')
+const session = require("express-session");
+
 var port = process.env.PORT || 3001;
 
 
 const passport = require('passport');
 const config = require('./config');
 const app = express()
+
+app.use(cors());
 
 require('./userServer/models').connect(config.dbUri);
 
@@ -18,6 +21,12 @@ app.use(express.static('./dist/'));
 app.use(body_parser.urlencoded({ extended: false }));
 // pass the passport middleware
 app.use(passport.initialize());
+
+app.use(session({
+  secret: "woof",
+  saveUninitalized: false,
+  resave: false
+}))
 
 // load passport strategies
 const localSignupStrategy = require('./userServer/passport/local-signup');
@@ -41,7 +50,7 @@ app.use(body_parser.urlencoded({
   extended: false
 }));
 
-app.use(cors());
+
 
 // db
 // mongoose.connect("mongodb://localhost:27017/DogShare_Proj3");

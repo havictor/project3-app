@@ -50,7 +50,7 @@ class Login extends React.Component {
 
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/login');
+    xhr.open('post', 'auth/login');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
@@ -71,17 +71,23 @@ class Login extends React.Component {
         // redirect signed in user to dashboard
         this.props.history.push('/dashboard');
       } else {
+        console.log(xhr)
         // failure
-
+        /*
         // change the component state
-        const errors = xhr.response.errors ? xhr.response.errors : {};
-        errors.summary = xhr.response.message;
+        if (xhr.response.errors) {
+          let errors = xhr.response.errors
+          
+        // else {};
+        // errors.summary = xhr.response.message;
 
         this.setState({
           errors
         });
+        }*/
       }
     });
+    console.log(formData);
     xhr.send(formData);
   }
 

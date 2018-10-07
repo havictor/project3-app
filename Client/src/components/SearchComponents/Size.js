@@ -19,6 +19,11 @@ class Size extends Component {
 
     sizeSearch() {
         axios.get('http://localhost:3001/api/search', {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': '*',
+                'Content-Type': 'application/json',
+            },
             params:{
                 column: 'size',
                 columnVar: $('#inputGroupSelect04').val()

@@ -70,6 +70,7 @@ class UserRegister extends React.Component {
         });
       }
     });
+    console.log(formData);
     xhr.send(formData);
   }
 
