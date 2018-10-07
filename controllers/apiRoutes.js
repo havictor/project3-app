@@ -12,6 +12,8 @@ module.exports = function(app){
     ///////////////////
 
     // get request for search bar
+
+
     app.get('/api/search*', function(req, res) {
         console.log(req.query.column);
         console.log(req.query.columnVar);
@@ -95,6 +97,10 @@ module.exports = function(app){
         })
         res.json('test')
     })
+
+    app.get('*', (req, res) => 
+        res.sendFile(path.resolve('build', 'index.html'))
+    )
 
     ///////////////////
     // POST requests //
