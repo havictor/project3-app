@@ -99,7 +99,7 @@ module.exports = function(app){
     })
 
     app.get('*', (req, res) => 
-        res.sendFile(path.resolve('build', 'index.html'))
+        res.sendFile(path.resolve('/Client/public/', 'index.html'))
     )
 
     ///////////////////
