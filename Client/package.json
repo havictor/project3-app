@@ -30,10 +30,12 @@
     "validator": "^10.8.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "build": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "concurrently \"react-scripts test --env=jsdom\" \"node server.js\"",
+    "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "server.js",
   "repository": {
