@@ -99,7 +99,7 @@ module.exports = function(app){
     })
 
     app.get('*', (req, res) => 
-        res.sendFile(path.join('/Client/public/', 'index.html'))
+        res.sendFile(path.join('/index.html'))
     )
 
     ///////////////////
