@@ -2,7 +2,7 @@ var express = require('express');
 var body_parser = require('body-parser');
 var methodOverride = require('method-override');
 var path = require('path');var cors = require('cors')
-const session = require("express-session");
+var session = require("express-session");
 
 var port = process.env.PORT || 3001;
 

@@ -33,7 +33,7 @@
     "start": "node server.js",
     "build": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd Client && yarn install && yarn start"
+    "heroku-postbuild": "cd Client && yarn install && yarn run build"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "server.js",
