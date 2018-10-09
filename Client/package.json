@@ -35,7 +35,12 @@
     "test": "concurrently \"react-scripts test --env=jsdom\" \"node server.js\"",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": {
+    "/api": {
+      "target": "https://localhost:3001",
+      "secure": false
+    }
+  },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "server.js",
   "repository": {

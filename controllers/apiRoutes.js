@@ -98,9 +98,9 @@ module.exports = function(app){
         res.json('test')
     })
 
-    app.get('*', (req, res) => 
-        res.sendFile(path.join('./index.html'))
-    )
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/build/index.html'))
+      })
 
     ///////////////////
     // POST requests //

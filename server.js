@@ -16,12 +16,14 @@ app.use(cors());
 require('./userServer/models').connect(config.dbUri);
 
 // tell the app to look for static files in these directories
-app.use(express.static(path.join(__dirname, '/Client/public')));
+app.use(express.static(path.join(__dirname, '/client/public')));
 app.use(express.static('./dist/'));
 // tell the app to parse HTTP body messages
 app.use(body_parser.urlencoded({ extended: false }));
 // pass the passport middleware
 app.use(passport.initialize());
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.use(session({
   secret: "woof",
@@ -37,7 +39,7 @@ passport.use('local-login', localLoginStrategy);
 
 // pass the authenticaion checker middleware
 const authCheckMiddleware = require('./userServer/middleware/auth-check');
-app.use('/api', authCheckMiddleware);
+// app.use('/api', authCheckMsiddleware);
 
 // routes
 const authRoutes = require('./userServer/routes/auth');
